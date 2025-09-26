@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>T-Shirt Search</title>
+</head>
+<body style="text-align:center; font-family: Arial;">
+    <h1>Search Your Fashion</h1>
+    <form method="post">
+        <input type="text" name="query" placeholder="e.g. black t-shirt without logo" size="40">
+        <button type="submit">Search</button>
+    </form>
+
+    <h2>All T-Shirts</h2>
+    <div style="display:flex; flex-wrap:wrap; gap:20px; justify-content:center;">
+        {% for img in all_images %}
+            <div>
+                <img src="{{ img }}" width="150">
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

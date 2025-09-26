@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            justify-items: center;
+        }
+        .tshirt {
+            text-align: center;
+        }
+    </style>
+</head>
+<body style="font-family: Arial; text-align:center;">
+    <h1>Results for: "{{ query }}"</h1>
+
+    {% if results %}
+    <div class="grid-container">
+        {% for img, score in results %}
+            <div class="tshirt">
+                <img src="{{ img }}" width="200"><br>
+                <b>Score: {{ "%.2f"|format(score) }}</b>
+            </div>
+        {% endfor %}
+    </div>
+    {% else %}
+        <p>No matching t-shirts found (score > 0).</p>
+    {% endif %}
+
+    <br>
+    <a href="/">🔙 New Search</a>
+</body>
+</html>
